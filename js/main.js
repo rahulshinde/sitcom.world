@@ -1,0 +1,5 @@
+Site = {}
+
+$(document).ready( function(){
+  
+})
