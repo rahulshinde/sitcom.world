@@ -53,7 +53,112 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+html {
+  font-size: 16px; }
+
+/*================
+   SPINNER
+  ================== */
+@-webkit-keyframes move {
+  from {
+    -webkit-transform: translateX(-50%); }
+  to {
+    -webkit-transform: translateX(0%); } }
+/* all other browsers */
+@keyframes move {
+  from {
+    transform: translateX(-50%); }
+  to {
+    transform: translateX(0%); } }
 #site {
-  background-color: #eebe2c; }
+  background-color: #eebe2c;
+  font-family: Arial, Regular, sans-serif;
+  font-size: 1rem; }
+  #site #album_container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+  #site #social_media_links {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100; }
+    #site #social_media_links li {
+      padding-bottom: 0.6em; }
+      #site #social_media_links li a {
+        text-decoration: none;
+        color: #000; }
+        #site #social_media_links li a:hover {
+          font-style: italic; }
+  #site #banner {
+    position: fixed;
+    z-index: 100; }
+  #site #banner {
+    position: fixed;
+    bottom: 2.5rem;
+    left: 1rem;
+    width: 300px;
+    height: 40px; }
+  #site #birthday {
+    position: fixed;
+    bottom: 1rem;
+    left: 2.4rem;
+    font-size: 0.7rem; }
+  #site #banner .line:nth-of-type(2) {
+    transform: rotate(90deg);
+    margin-left: 130px; }
+  #site #banner .line:nth-of-type(4) {
+    transform: rotate(270deg);
+    margin-left: -130px; }
+  #site #banner .line i {
+    animation: move 15s infinite linear, blink2 6s infinite; }
+  #site .rotate {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 200px;
+    height: 40px;
+    overflow: hidden;
+    color: #000;
+    animation: blink 1s step-end infinite alternate; }
+  #site .rotate .line {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute; }
+  #site .rotate .line:nth-of-type(1) {
+    transform: rotate(0deg); }
+  #site .rotate .line:nth-of-type(2) {
+    transform: rotate(90deg);
+    margin-left: 80px; }
+  #site .rotate .line:nth-of-type(3) {
+    transform: rotate(180deg); }
+  #site .rotate .line:nth-of-type(4) {
+    transform: rotate(270deg);
+    margin-left: -80px; }
+  #site .rotate .line i {
+    left: 0;
+    top: 0;
+    width: 214%;
+    display: block;
+    position: absolute;
+    border-bottom: 2px dashed;
+    animation: move 15s infinite linear, blink 1.75s infinite linear; }
+  #site .rotate .text {
+    padding-top: 12px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 14px;
+    color: #000; }
+  #site #site_credits {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.7rem;
+    z-index: 100; }
+    #site #site_credits a {
+      color: #00f; }
 
 /*# sourceMappingURL=main.css.map */
