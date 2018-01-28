@@ -79,11 +79,16 @@ html {
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0; }
+    right: 0;
+    cursor: url(hand-1.png), grab;
+    cursor: url(hand-1.png), -webkit-grab; }
+    #site #album_container:active {
+      cursor: url(hand.png), grabbing;
+      cursor: url(hand.png), -webkit-grabbing; }
   #site #social_media_links {
     position: fixed;
-    top: 1rem;
-    left: 1rem;
+    top: 2rem;
+    left: 2rem;
     z-index: 100; }
     #site #social_media_links li {
       padding-bottom: 0.6em; }
@@ -97,14 +102,14 @@ html {
     z-index: 100; }
   #site #banner {
     position: fixed;
-    bottom: 2.5rem;
-    left: 1rem;
+    bottom: 3rem;
+    left: 2rem;
     width: 300px;
     height: 40px; }
   #site #birthday {
     position: fixed;
-    bottom: 1rem;
-    left: 2.4rem;
+    bottom: 1.5rem;
+    left: 3.4rem;
     font-size: 0.7rem; }
   #site #banner .line:nth-of-type(2) {
     transform: rotate(90deg);
@@ -114,6 +119,15 @@ html {
     margin-left: -130px; }
   #site #banner .line i {
     animation: move 15s infinite linear, blink2 6s infinite; }
+  #site #party_flyer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90vw;
+    max-height: 90vh;
+    display: none;
+    box-shadow: 1rem 1rem 0.5rem rgba(0, 0, 0, 0.5); }
   #site .rotate {
     position: absolute;
     bottom: 30px;
@@ -123,6 +137,8 @@ html {
     overflow: hidden;
     color: #000;
     animation: blink 1s step-end infinite alternate; }
+    #site .rotate:hover #party_flyer {
+      display: block; }
   #site .rotate .line {
     width: 100%;
     height: 100%;
@@ -154,8 +170,9 @@ html {
     color: #000; }
   #site #site_credits {
     position: fixed;
-    bottom: 1rem;
-    right: 1rem;
+    padding: 2rem;
+    bottom: 0rem;
+    right: 0rem;
     font-size: 0.7rem;
     z-index: 100; }
     #site #site_credits a {

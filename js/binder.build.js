@@ -14,6 +14,8 @@ var mesh1,
 	mesh3,
 	mesh4;
 
+isMouseDown = false
+
 var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
 
@@ -34,7 +36,7 @@ animate();
 function init() {
 	scene = new THREE.Scene();
 	camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 1000 );
-	camera.position.z = 32;
+	camera.position.z = 35;
 
 	var cameraControls;
 
@@ -44,8 +46,8 @@ function init() {
 
 	cameraControls = new THREE.OrbitControls(camera, renderer.domElement);
 	cameraControls.target.set( 0, 0, 0);
-	cameraControls.maxDistance = 32;
-	cameraControls.minDistance = 32;
+	cameraControls.maxDistance = 35;
+	cameraControls.minDistance = 20;
 	cameraControls.update();
 
 	//adding lights, sphere is just to check light position.
@@ -88,6 +90,14 @@ function init() {
 	var backTexture = new THREE.ImageUtils.loadTexture( 'img/back_cover.jpg' );
 
 	var backMaterial = new THREE.MeshPhongMaterial( { map: backTexture, side:THREE.FrontSide } );
+
+	var spine1Texture = new THREE.ImageUtils.loadTexture( 'img/spines-01.jpg' );
+
+	var spine1Material = new THREE.MeshPhongMaterial( { map: spine1Texture, side:THREE.DoubleSide } );
+
+	var spine2Texture = new THREE.ImageUtils.loadTexture( 'img/spines-02.jpg' );
+
+	var spine2Material = new THREE.MeshPhongMaterial( { map: spine2Texture, side:THREE.DoubleSide } );
 	 
 	// BINDER //
 
@@ -95,44 +105,48 @@ function init() {
 
 	var geometry1 = new THREE.PlaneGeometry( 20, 20 );
 	var binderFace1 = new THREE.Mesh( geometry1, coverMaterial );
-	binderFace1.position.z = 0.75;
+	binderFace1.position.z = 0.7;
 	binderGroup.add( binderFace1 );
 
 	var material = new THREE.MeshPhongMaterial( { color: 0xff0000 } );
 	var binderFace2 = new THREE.Mesh( geometry1, backMaterial );
-	binderFace2.position.z = -0.75;
+	binderFace2.position.z = -0.7;
 	binderFace2.rotation.y = 3.14;
 	binderGroup.add( binderFace2 );
 
-	var geometry3 = new THREE.BoxGeometry( .5, 20, 1.4 );
-	var spine = new THREE.Mesh( geometry3, material );
-	spine.position.x = -9.75;
+	var geometry3 = new THREE.BoxGeometry( .01, 20, 1.4 );
+	var spine = new THREE.Mesh( geometry3, spine1Material );
+	spine.position.x = -9.99;
 	spine.position.z = 0;
 	binderGroup.add( spine );
 
 
 	// var sideMaterial = new THREE.MeshPhongMaterial( { color: 0xffffff } );
 
-	var opening = new THREE.Mesh( geometry3, material );
-	opening.position.x = 9.75;
+	var opening = new THREE.Mesh( geometry3, spine1Material );
+	opening.position.x = 9.99;
 	opening.position.z = 0;
+	opening.rotation.x = 3.14;
 	binderGroup.add( opening );
 
-	var geometry4 = new THREE.BoxGeometry( 20, 0.5,  1.4);
-	var top = new THREE.Mesh( geometry4, material );
-	top.position.y = 9.75;
+	var geometry4 = new THREE.BoxGeometry( 20, 0.01,  1.4);
+	var top = new THREE.Mesh( geometry4, spine2Material );
+	top.position.y = 9.99;
+	top.rotation.y = 3.14;
 	top.position.z = 0;
 	binderGroup.add( top );
 
-	var bottom = new THREE.Mesh( geometry4, material );
-	bottom.position.y = -9.75;
+	var bottom = new THREE.Mesh( geometry4, spine2Material );
+	bottom.position.y = -9.99;
 	bottom.position.z = 0;
 	binderGroup.add( bottom );
-
 
 	scene.add (binderGroup);
 
 	document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+
+	window.addEventListener('mousedown', onMouseDown);
+  window.addEventListener('mouseup', onMouseUp);
 
 	window.addEventListener( 'resize', onWindowResize, false );
 
@@ -147,6 +161,15 @@ function onWindowResize() {
 
 }
 
+function onMouseDown(){
+    isMouseDown = true;
+}
+
+function onMouseUp(){
+    isMouseDown = false;
+}
+
+
 function onDocumentMouseMove( event ) {
 
 	mouseX = ( event.clientX - windowHalfX );
@@ -154,7 +177,17 @@ function onDocumentMouseMove( event ) {
 
 }
 
+function onDocumentMouseDown( event ) {
+	console.log('hello');
+	requestAnimationFrame( animate );
+	binderGroup.rotation.y += 0;
+}
+
 function animate() {
+
+	if(!isMouseDown){
+    binderGroup.rotation.y += .005;
+  }
 
 	requestAnimationFrame( animate );
 	render();
@@ -162,6 +195,5 @@ function animate() {
 }	
 
 function render() {
-	binderGroup.rotation.y += .005;
 	renderer.render(scene, camera);
 };
