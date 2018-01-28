@@ -74,6 +74,18 @@ html {
   background-color: #eebe2c;
   font-family: Arial, Regular, sans-serif;
   font-size: 1rem; }
+  #site #cover {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #eebe2c;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 1.25s ease; }
+    #site #cover.visible {
+      opacity: 1; }
   #site #album_container {
     position: fixed;
     top: 0;
@@ -81,10 +93,14 @@ html {
     left: 0;
     right: 0;
     cursor: url(hand-1.png), grab;
-    cursor: url(hand-1.png), -webkit-grab; }
+    cursor: url(hand-1.png), -webkit-grab;
+    opacity: 0;
+    transition: opacity 1.25s ease; }
     #site #album_container:active {
       cursor: url(hand.png), grabbing;
       cursor: url(hand.png), -webkit-grabbing; }
+    #site #album_container.visible {
+      opacity: 1; }
   #site #social_media_links {
     position: fixed;
     top: 2rem;
