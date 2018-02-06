@@ -54,7 +54,7 @@ table {
   border-spacing: 0; }
 
 html {
-  font-size: 16px; }
+  font-size: 15px; }
 
 /*================
    SPINNER
@@ -89,8 +89,8 @@ html {
     bottom: 0;
     left: 0;
     right: 0;
-    cursor: url(hand-1.png), grab;
-    cursor: url(hand-1.png), -webkit-grab;
+    cursor: url(hand.png), grabbing;
+    cursor: url(hand.png), -webkit-grabbing;
     opacity: 0;
     transition: opacity 1.25s ease; }
     #site #album_container:active {
@@ -115,7 +115,7 @@ html {
     z-index: 100; }
   #site #banner {
     position: fixed;
-    bottom: 3rem;
+    bottom: 2rem;
     left: 2rem;
     width: 300px;
     height: 40px; }
@@ -254,7 +254,8 @@ html {
     max-width: calc(100% - 4rem);
     bottom: 3.5rem;
     border: 1px solid #000;
-    line-height: 1.3em; }
+    line-height: 1.3em;
+    height: auto; }
   #site #banner .line {
     display: none; }
   #site #birthday {
