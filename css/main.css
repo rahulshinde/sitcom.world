@@ -106,13 +106,13 @@ html {
     #site #social_media_links li {
       padding-bottom: 0.6em; }
       #site #social_media_links li a {
-        text-decoration: none;
-        color: #000; }
-        #site #social_media_links li a:hover {
-          font-style: italic; }
+        text-decoration: underline;
+        color: #00f; }
   #site #banner {
     position: fixed;
     z-index: 100; }
+    #site #banner a {
+      color: blue; }
   #site #banner {
     position: fixed;
     bottom: 2rem;
@@ -236,7 +236,8 @@ html {
     text-align: center;
     letter-spacing: 1px;
     font-size: 14px;
-    color: #000; }
+    color: #00f;
+    text-decoration: underline; }
   #site #site_credits {
     position: fixed;
     padding: 2rem;
@@ -258,6 +259,9 @@ html {
     height: auto; }
   #site #banner .line {
     display: none; }
+  #site .text {
+    height: auto !important;
+    padding-bottom: 12px !important; }
   #site #birthday {
     display: none; }
   #site #site_credits {
