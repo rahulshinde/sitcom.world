@@ -134,13 +134,69 @@ html {
     animation: move 15s infinite linear, blink2 6s infinite; }
   #site #party_flyer {
     position: fixed;
+    display: none;
+    z-index: 50;
+    color: white; }
+    #site #party_flyer h1, #site #party_flyer h2, #site #party_flyer h3 {
+      text-shadow: 1rem 1rem 0.5rem rgba(0, 0, 0, 0.5);
+      font-size: 1.2rem;
+      line-height: 1.3em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase; }
+    #site #party_flyer h1 {
+      color: black;
+      font-weight: bold;
+      font-size: 5rem;
+      letter-spacing: 0;
+      font-style: italic;
+      z-index: 10; }
+    #site #party_flyer h3 {
+      color: black;
+      font-weight: bold; }
+    #site #party_flyer h2 {
+      font-weight: normal; }
+  #site #gradient {
+    position: fixed;
+    top: 35%;
+    left: 55%;
+    width: 5vw;
+    height: 36vh;
+    background: linear-gradient(to right, #dd3ece, #e9ae27, #548837, #3f6ff2);
+    box-shadow: 1rem 1rem 0.5rem rgba(0, 0, 0, 0.5); }
+  #site #performers,
+  #site #record_release_party,
+  #site #powered_by,
+  #site #sitcom {
+    position: fixed;
+    transform: rotate(90deg);
+    text-shadow: 1rem -1rem 0.5rem rgba(0, 0, 0, 0.5) !important; }
+  #site #sitcom {
+    top: 30%;
+    right: 25%; }
+  #site #record_release_party {
+    top: 50%;
+    right: 20vw;
+    transform: rotate(90deg) translateY(-50%); }
+  #site #performers {
+    top: 7rem;
+    right: 14vw; }
+  #site #info {
+    position: fixed;
+    bottom: 3rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+  #site .flyer_image {
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 90vw;
     max-height: 90vh;
-    display: none;
     box-shadow: 1rem 1rem 0.5rem rgba(0, 0, 0, 0.5); }
+  #site #powered_by {
+    top: 7rem;
+    left: 10vw; }
   #site .rotate {
     position: absolute;
     bottom: 30px;
@@ -190,5 +246,18 @@ html {
     z-index: 100; }
     #site #site_credits a {
       color: #00f; }
+
+@media (max-width: 768px) {
+  #site #party_flyer {
+    display: none !important; }
+  #site #banner {
+    max-width: calc(100% - 4rem);
+    bottom: 3.5rem; }
+  #site #birthday {
+    display: none; }
+  #site #site_credits {
+    left: 0rem;
+    right: 0;
+    bottom: 0rem; } }
 
 /*# sourceMappingURL=main.css.map */

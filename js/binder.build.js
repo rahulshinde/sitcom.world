@@ -1,7 +1,5 @@
 //general scene variables
 
-console.log((Math.random()*20).toFixed(0));
-
 var scene,
 	camera,
 	light1,
