@@ -151,11 +151,17 @@ function init() {
 }
 
 function onWindowResize() {
+	if (window.innerWidth <= 768){
+		camera.aspect = window.innerWidth * 0.5 / window.innerHeight * 0.5;
+		camera.updateProjectionMatrix();
 
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
+		renderer.setSize( window.innerWidth * 0.5, window.innerHeight * 0.5 );
+	}else{
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
 
-	renderer.setSize( window.innerWidth, window.innerHeight );
+		renderer.setSize( window.innerWidth, window.innerHeight );
+	}
 
 }
 

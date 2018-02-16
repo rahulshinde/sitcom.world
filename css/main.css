@@ -271,6 +271,7 @@ html {
       text-transform: uppercase;
       font-weight: bold;
       top: 43%;
+      letter-spacing: 0.01em;
       right: -8rem;
       opacity: 1;
       transition: opacity ease 0.5s;
@@ -294,6 +295,10 @@ html {
     padding-bottom: 12px !important; }
   #site #birthday {
     display: none; }
+  #site #album_container {
+    transform: scale(0.5);
+    left: -25%;
+    bottom: -25%; }
   #site #site_credits {
     left: 0rem;
     right: 0;
