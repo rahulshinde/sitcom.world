@@ -106,6 +106,7 @@ html {
       padding-bottom: 0.6em; }
       #site #social_media_links li a {
         /*text-decoration: underline;*/
+        font-size: 0.8rem;
         color: #00f; }
   #site #banner {
     position: fixed;
